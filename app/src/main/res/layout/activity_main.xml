@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.haige.mtest1.mtest1.MainActivity">
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_weight="1">
+
+            <TextView
+                android:text="网络测试"
+                android:layout_width="0px"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:textSize="25sp"
+                android:textColor="#444"
+                android:id="@+id/net" />
+
+            <TextView
+                android:text="pulltoRefresh"
+                android:layout_width="0px"
+                android:layout_weight="1"
+                android:layout_gravity="center"
+                android:textSize="25sp"
+                android:textColor="#444"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:id="@+id/pullto" />
+
+            <TextView
+                android:text="retrofit"
+                android:layout_width="0px"
+                android:layout_weight="1"
+                android:layout_gravity="center"
+                android:textSize="25sp"
+                android:textColor="#444"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:id="@+id/no2" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_weight="1">
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_weight="1" >
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_weight="1">
+        </TableRow>
+    </TableLayout>
+</RelativeLayout>
