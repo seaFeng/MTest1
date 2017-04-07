@@ -30,8 +30,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     TextView no2;
     @BindView(R.id.no21)
     TextView no21;
-    @BindView(R.id.no22)
-    TextView no22;
+    @BindView(R.id.circleView)
+    TextView circleView;
     @BindView(R.id.no23)
     TextView no23;
     @BindView(R.id.activity_main)
@@ -54,7 +54,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         pullto.setOnClickListener(this);
         no2.setOnClickListener(this);
         no21.setOnClickListener(this);
-        no22.setOnClickListener(this);
+        circleView.setOnClickListener(this);
         no23.setOnClickListener(this);
     }
 
@@ -74,7 +74,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 Intent intent1 = new Intent(this, PulltoRefreshActivity.class);
                 startActivity(intent1);
                 break;
-            case R.id.no22:
+            case R.id.circleView:
+                Intent intent2 = new Intent();
                 break;
             case R.id.no23:
                 break;

@@ -68,7 +68,7 @@
                 android:id="@+id/no21" />
 
             <TextView
-                android:text="待定"
+                android:text="圆环自定义View"
                 android:layout_width="0px"
                 android:layout_weight="1"
                 android:layout_gravity="center"
@@ -76,7 +76,7 @@
                 android:textColor="#444"
                 android:layout_height="match_parent"
                 android:gravity="center"
-                android:id="@+id/no22" />
+                android:id="@+id/circleView" />
 
             <TextView
                 android:text="待定"
