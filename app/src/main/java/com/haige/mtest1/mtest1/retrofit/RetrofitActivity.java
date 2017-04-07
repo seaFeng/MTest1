@@ -9,15 +9,23 @@ import android.util.Log;
 
 import com.haige.mtest1.mtest1.R;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.io.IOException;
 
+import okhttp3.FormBody;
+import okhttp3.MediaType;
+import okhttp3.RequestBody;
 import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
+import retrofit2.http.Body;
 import retrofit2.http.GET;
+import retrofit2.http.POST;
 import retrofit2.http.Path;
 
 public class RetrofitActivity extends AppCompatActivity {
@@ -31,14 +39,67 @@ public class RetrofitActivity extends AppCompatActivity {
         // http 测试接口。
         // requestDate1();
         // https 测试接口
-        requestDate2();
+        //requestDate2();
         // post 数据请求
+        requestPost();
+    }
+
+    /**
+     *  测试post数据请求。
+     */
+    private void requestPost() {
+        MediaType type = MediaType.parse("text/plain; charset=utf-8");
+        MediaType typeJson = MediaType.parse("application/json; charset=utf-8");
+        JSONObject jsonObject = new JSONObject();
+        try {
+            jsonObject.put("key","e5d427da62e36f2b5751bb23de1b66eb");
+            jsonObject.put("v","1.0");
+            jsonObject.put("month","11");
+            jsonObject.put("day","10");
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        RequestBody body = RequestBody.create(type,"v=1.0&month=1&day=10&key=e5d427da62e36f2b5751bb23de1b66eb");
+        RequestBody bodyJson = RequestBody.create(typeJson,jsonObject.toString());
+
+            FormBody formBody = new FormBody.Builder()
+                    .add("key","e5d427da62e36f2b5751bb23de1b66eb")
+                    .add("v","1.0")
+                    .add("month","11")
+                    .add("day","10")
+                    .build();
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl("http://api.juheapi.com/japi/")
+                .build();
+        PostService service = retrofit.create(PostService.class);
+
+        Call<ResponseBody> call = service.getInfo(formBody);
+        call.enqueue(new Callback<ResponseBody>() {
+            @Override
+            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                try {
+                    if ( response.isSuccessful()) {
+                        String result = response.body().string();
+                        text.setText(result);
+                        Log.e(TAG,result);
+                    }
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ResponseBody> call, Throwable t) {
+
+            }
+        });
     }
 
     /**
      *  https请求网络
      */
     private void requestDate2() {
+
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("https://github.com/square/")
                 .build();
@@ -105,5 +166,13 @@ public class RetrofitActivity extends AppCompatActivity {
     public interface Service1{
         @GET("retrofit/tree/master/retrofit-converters/gson/src/main/java/retrofit2/converter/gson")
         Call<ResponseBody> getInfo();
+    }
+
+    /**
+     *  post 请求
+     */
+    public interface PostService{
+        @POST("toh")
+        Call<ResponseBody> getInfo(@Body RequestBody body);
     }
 }

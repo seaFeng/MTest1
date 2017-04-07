@@ -30,7 +30,7 @@
                 android:id="@+id/net" />
 
             <TextView
-                android:text="pulltoRefresh"
+                android:text="网络"
                 android:layout_width="0px"
                 android:layout_weight="1"
                 android:layout_gravity="center"
@@ -56,6 +56,38 @@
             android:layout_width="match_parent"
             android:layout_height="1px"
             android:layout_weight="1">
+            <TextView
+                android:text="pullToRefresh"
+                android:layout_width="0px"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:textSize="25sp"
+                android:textColor="#444"
+                android:id="@+id/no21" />
+
+            <TextView
+                android:text="待定"
+                android:layout_width="0px"
+                android:layout_weight="1"
+                android:layout_gravity="center"
+                android:textSize="25sp"
+                android:textColor="#444"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:id="@+id/no22" />
+
+            <TextView
+                android:text="待定"
+                android:layout_width="0px"
+                android:layout_weight="1"
+                android:layout_gravity="center"
+                android:textSize="25sp"
+                android:textColor="#444"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:id="@+id/no23" />
         </TableRow>
 
         <TableRow
